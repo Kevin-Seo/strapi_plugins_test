@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "champs",
+  "info": {
+    "name": "Champs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "HP": {
+      "type": "integer",
+      "required": true
+    },
+    "HPP": {
+      "type": "integer",
+      "required": true
+    },
+    "HP5": {
+      "type": "decimal",
+      "required": true
+    },
+    "HP5P": {
+      "type": "decimal",
+      "required": true
+    },
+    "MP": {
+      "type": "integer",
+      "required": true
+    },
+    "MPP": {
+      "type": "integer",
+      "required": true
+    },
+    "MP5": {
+      "type": "decimal",
+      "required": true
+    },
+    "MP5P": {
+      "type": "decimal",
+      "required": true
+    },
+    "AD": {
+      "type": "integer",
+      "required": true
+    },
+    "ADP": {
+      "type": "integer",
+      "required": true
+    },
+    "AS": {
+      "type": "float",
+      "required": true
+    },
+    "ASP": {
+      "type": "float",
+      "required": true
+    },
+    "AR": {
+      "type": "biginteger",
+      "required": true
+    },
+    "ARP": {
+      "type": "integer",
+      "required": true
+    },
+    "MR": {
+      "type": "decimal",
+      "required": true
+    },
+    "MRP": {
+      "type": "decimal",
+      "required": true
+    },
+    "MS": {
+      "type": "integer",
+      "required": true
+    },
+    "Range": {
+      "type": "integer",
+      "private": false,
+      "required": true
+    }
+  }
+}

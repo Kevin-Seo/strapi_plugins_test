@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "name": "Items"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Gold": {
+      "type": "integer"
+    },
+    "HP": {
+      "type": "integer"
+    },
+    "HP5": {
+      "type": "integer"
+    },
+    "MP": {
+      "type": "integer"
+    },
+    "MP5": {
+      "type": "integer"
+    },
+    "AD": {
+      "type": "integer"
+    },
+    "AP": {
+      "type": "integer"
+    },
+    "AR": {
+      "type": "integer"
+    },
+    "MR": {
+      "type": "integer"
+    },
+    "AS": {
+      "type": "integer"
+    },
+    "CC": {
+      "type": "integer"
+    },
+    "CDR": {
+      "type": "integer"
+    },
+    "Name": {
+      "type": "string",
+      "private": false,
+      "required": true,
+      "unique": true
+    },
+    "LS": {
+      "type": "integer"
+    },
+    "Leth": {
+      "type": "integer"
+    },
+    "MPEN": {
+      "type": "integer"
+    },
+    "Shoe": {
+      "type": "integer"
+    },
+    "MS": {
+      "type": "integer"
+    },
+    "Heal": {
+      "type": "integer"
+    },
+    "ApenPercent": {
+      "type": "integer"
+    },
+    "MpenPercent": {
+      "type": "integer"
+    },
+    "CritDMG": {
+      "type": "integer"
+    },
+    "SV": {
+      "type": "integer"
+    },
+    "ApMult": {
+      "type": "integer"
+    },
+    "AdMult": {
+      "type": "integer"
+    },
+    "HPMult": {
+      "type": "integer"
+    },
+    "Tenacity": {
+      "type": "integer"
+    },
+    "FlatMS": {
+      "type": "integer"
+    }
+  }
+}
