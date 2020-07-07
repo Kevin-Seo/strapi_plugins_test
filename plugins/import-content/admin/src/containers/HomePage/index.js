@@ -20,6 +20,8 @@ import Row from "../../components/Row";
 import Block from "../../components/Block";
 import { Select, Label } from "@buffetjs/core";
 import { get, has, isEmpty, pickBy, set } from "lodash";
+import MappingTable from "../../components/MappingTable";
+import { Button } from "@buffetjs/core";
 
 const getUrl = to =>
   to ? `/plugins/${pluginId}/${to}` : `/plugins/${pluginId}`;
@@ -39,6 +41,7 @@ class HomePage extends Component {
     analyzing: false,
     analysis: null,
     selectedContentType: "",
+    fieldMapping: {},
   };
 
   componentDidMount() {
@@ -108,6 +111,34 @@ class HomePage extends Component {
         });
       }
     });
+  };
+
+  getTargetModel = () => {
+    const { models } = this.state;
+    if (!models) return null;
+    return models.find(model => model.uid === this.state.selectedContentType);
+  };
+
+  setFieldMapping = fieldMapping => {
+    this.setState({ fieldMapping });
+  };
+
+  onSaveImport = async () => {
+    const { selectedContentType, fieldMapping } = this.state;
+    const { analysisConfig } = this;
+    const importConfig = {
+      ...analysisConfig,
+      contentType: selectedContentType,
+      fieldMapping
+    };
+    try {
+      await request("/import-content", { method: "POST", body: importConfig });
+      this.setState({ saving: false }, () => {
+      strapi.notification.info("Import started");
+      });
+    } catch (e) {
+      strapi.notification.error(`${e}`);
+    }
   };
 
   render() {
@@ -182,6 +213,20 @@ class HomePage extends Component {
             </Row>
           </Block>
         </div>
+        {this.state.analysis && (
+          <Row className="row">
+            <MappingTable
+              analysis={this.state.analysis}
+              targetModel={this.getTargetModel()}
+              onChange={this.setFieldMapping}
+            />
+            <Button
+              style={{ marginTop: 12 }}
+              label={"Run the Import"}
+              onClick={this.onSaveImport}
+            />
+          </Row>
+        )}
       </div>
     );
   };
